@@ -33,7 +33,7 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-#     get_message = event.message.text
+    get_message = event.message.text
     
     if get_message=='第一步驟':
         reply = TextSendMessage(text="請依照範例上傳人物照片")
