@@ -33,8 +33,19 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    get_message = event.message.text
-
+#     get_message = event.message.text
+    
+    if get_message=='第一步驟':
+        reply = TextSendMessage(text="請依照範例上傳人物照片")
+        line_bot_api.reply_message(event.reply_token, reply)
+    elif get_message=='第二步驟':
+        # reply = TextSendMessage(text=f"{get_message}")
+        reply = TextSendMessage(text="請您上傳您想試穿的衣服")
+        line_bot_api.reply_message(event.reply_token, reply)
+    elif get_message=='結果':
+        reply = TextSendMessage(text="待產出，不要吵")
+        line_bot_api.reply_message(event.reply_token, reply)
+    else:
     # Send To Line
-    reply = TextSendMessage(text=f"{get_message}")
-    line_bot_api.reply_message(event.reply_token, reply)
+        reply = TextSendMessage(text="不要吵")
+        line_bot_api.reply_message(event.reply_token, reply)
